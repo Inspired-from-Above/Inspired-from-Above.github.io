@@ -1,25 +1,32 @@
-# Inspired From Above — Portfolio
+# Inspired From Above
 
-Architectural & Structural BIM design portfolio.
+Independent civil and structural engineering practice — BIM modelling, foundation design, structural analysis, and construction documentation.
 
-## Projects
+## Engineering Projects & Services
 
 | # | Project | Tools |
 |---|---------|-------|
-| 001 | Residential Building Design & Modelling | Archicad, Revit |
-| 002 | Multifamily Residential Schematic Design | Revit |
-| 003 | Espace de Loisirs — Leisure & Advertisement Area | Archicad |
-| 004 | Steel Truss Design — Residential & Industrial Shed | Robot Structural Analysis, SolidWorks |
-| 005 | Arcade Analakely — Building Renovation | Archicad |
-| 006 | Industrial Building Renovation Design | Archicad |
-| 007 | Septic Tank System — Technical Drafting | AutoCAD |
+| 001 | Foundation Design — Structural Engineering | Geotechnical analysis (PMT, DCP, CPT, lab tests) |
+| 002 | Septic Tank System — Construction Drawings | AutoCAD |
+| 003 | Point Cloud to As-Built BIM Model | Revit |
+| 004 | Steel Roof Truss Design — Residential & Industrial | Robot Structural Analysis, SolidWorks |
+| 005 | Existing Building Renovation — BIM Modelling | Archicad |
+| 006 | Industrial Building Renovation — Design & Modelling | Archicad |
 
 ## Tools & Software
 
-- **Architectural BIM** — Archicad, Revit, AutoCAD
+- **BIM & CAD** — Archicad, Revit Architecture & Structure, AutoCAD
 - **Structural Analysis** — Autodesk Robot Structural Analysis, SolidWorks
-- **3D Design** — SketchUp, Vectorworks
+- **3D Modelling** — SketchUp, Vectorworks
+
+## Engineering Scope
+
+- Foundation & Geotechnical Design
+- Structural Steel Design
+- BIM As-Built Documentation
+- Renovation Modelling
+- Construction Drawing Production
 
 ## Contact
 
-herizo.mdg@outlook.com · Antananarivo, Madagascar
+herizo.mdg@outlook.com · Antananarivo, Madagascar · Open to relocation
