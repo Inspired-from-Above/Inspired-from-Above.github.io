@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspired From Above — Architectural & Structural Design Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Syne:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #0e0e0d;
+      --fog: #f0ede6;
+      --muted: #888880;
+      --dim: #444440;
+      --line: #222220;
+      --gold: #b08d57;
+      --gold2: #c9a96e;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--ink); color: var(--fog); font-family: var(--sans); }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0;
+      border-bottom: 0.5px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: var(--ink);
+      z-index: 10;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: var(--gold2);
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--fog); }
+
+    /* HERO */
+    .hero {
+      padding: 4.5rem 0 4rem;
+      border-bottom: 0.5px solid var(--line);
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: 62px;
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--fog);
+      margin-bottom: 1.6rem;
+    }
+    .hero-name em { font-style: italic; color: var(--gold2); }
+    .hero-desc {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #aaa89f;
+      max-width: 600px;
+    }
+
+    /* SECTION HEADING */
+    .sh {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 4rem 0 2rem;
+    }
+    .sh::before {
+      content: '';
+      width: 20px;
+      height: 0.5px;
+      background: var(--gold);
+      display: block;
+    }
+    .sh span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* PROJECTS */
+    .project-row {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 1.8rem;
+      padding: 1.8rem 0;
+      border-bottom: 0.5px solid var(--line);
+      align-items: start;
+    }
+    .project-row:first-child { border-top: 0.5px solid var(--line); }
+    .project-row:hover .pnum { color: var(--gold2); }
+    .project-row:hover .ptitle { color: var(--gold2); }
+    .pnum {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 0.1em;
+      padding-top: 2px;
+      transition: color 0.2s;
+    }
+    .ptype {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+    .ptitle {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--fog);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+    .pmeta {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+    .ptags {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-end;
+      padding-top: 2px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border: 0.5px solid #333330;
+      color: var(--dim);
+    }
+
+    /* TOOLS */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 0.5px solid var(--line);
+      margin-bottom: 0;
+    }
+    .tool-cell {
+      background: var(--ink);
+      padding: 1.4rem 1.6rem;
+    }
+    .tool-cat {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .tool-list {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 3.5rem 0 4rem;
+      border-top: 0.5px solid var(--line);
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .c-heading {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .c-heading em { font-style: italic; color: var(--gold2); }
+    .c-sub {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+    .c-links { display: flex; flex-direction: column; justify-content: center; gap: 0.8rem; }
+    .c-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.1rem;
+      border: 0.5px solid var(--line);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .c-link:hover { border-color: var(--gold); background: #131311; }
+    .c-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      flex: 1;
+    }
+    .c-val {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--fog);
+    }
+    .c-arrow { font-size: 12px; color: var(--gold); }
+
+    /* FOOTER */
+    footer {
+      padding: 1.8rem 0;
+      border-top: 0.5px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+    }
+    footer span {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 0.07em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .hero-name { font-size: 40px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .project-row { grid-template-columns: 40px 1fr; }
+      .ptags { display: none; }
+      .contact { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <div class="nav-name">Inspired From Above</div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">Architectural &amp; Structural Design · BIM Modelling</div>
+    <div class="hero-name"><em>Inspired</em><br>From Above</div>
+    <p class="hero-desc">A design portfolio spanning architectural BIM modelling, structural steel analysis, and technical drafting — across residential, commercial, industrial, and civil projects.</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <div id="projects">
+    <div class="sh"><span>Selected Projects</span></div>
+
+    <div class="project-row">
+      <div class="pnum">001</div>
+      <div>
+        <div class="ptype">Residential · Design-Build</div>
+        <div class="ptitle">Residential Building Design &amp; Modelling</div>
+        <div class="pmeta">Full architectural design-build · BIM modelling<br>Archicad &amp; Revit</div>
+      </div>
+      <div class="ptags">
+        <span class="tag">Archicad</span>
+        <span class="tag">Revit</span>
+      </div>
+    </div>
+
+    <div class="project-row">
+      <div class="pnum">002</div>
+      <div>
+        <div class="ptype">Residential · Schematic Design</div>
+        <div class="ptitle">Multifamily Residential Schematic Design</div>
+        <div class="pmeta">Schematic phase · Spatial planning &amp; massing<br>Revit</div>
+      </div>
+      <div class="ptags">
+        <span class="tag">Revit</span>
+      </div>
+    </div>
+
+    <div class="project-row">
+      <div class="pnum">003</div>
+      <div>
+        <div class="ptype">Commercial · Schematic Design</div>
+        <div class="ptitle">Espace de Loisirs — Leisure &amp; Advertisement Area</div>
+        <div class="pmeta">Schematic design · Layout &amp; spatial concept<br>Archicad</div>
+      </div>
+      <div class="ptags">
+        <span class="tag">Archicad</span>
+      </div>
+    </div>
+
+    <div class="project-row">
+      <div class="pnum">004</div>
+      <div>
+        <div class="ptype">Structural · Design-Build</div>
+        <div class="ptitle">Steel Truss Design — Residential &amp; Industrial Shed</div>
+        <div class="pmeta">Structural analysis &amp; member sizing · Shop drawing production<br>Robot Structural Analysis &amp; SolidWorks</div>
+      </div>
+      <div class="ptags">
+        <span class="tag">Robot SA</span>
+        <span class="tag">SolidWorks</span>
+      </div>
+    </div>
+
+    <div class="project-row">
+      <div class="pnum">005</div>
+      <div>
+        <div class="ptype">Renovation · Heritage</div>
+        <div class="ptitle">Arcade Analakely — Building Renovation</div>
+        <div class="pmeta">Existing building survey &amp; renovation modelling<br>Antananarivo, Madagascar · Archicad</div>
+      </div>
+      <div class="ptags">
+        <span class="tag">Archicad</span>
+        <span class="tag">Renovation</span>
+      </div>
+    </div>
+
+    <div class="project-row">
+      <div class="pnum">006</div>
+      <div>
+        <div class="ptype">Industrial · Renovation</div>
+        <div class="ptitle">Industrial Building Renovation Design</div>
+        <div class="pmeta">As-built documentation · 3D renovation modelling<br>Archicad</div>
+      </div>
+      <div class="ptags">
+        <span class="tag">Archicad</span>
+        <span class="tag">Industrial</span>
+      </div>
+    </div>
+
+    <div class="project-row">
+      <div class="pnum">007</div>
+      <div>
+        <div class="ptype">Civil · Technical Drafting</div>
+        <div class="ptitle">Septic Tank System — Technical Drafting</div>
+        <div class="pmeta">Draftsman role · Production of drawings to client standards<br>Antananarivo · AutoCAD</div>
+      </div>
+      <div class="ptags">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Drafting</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TOOLS -->
+  <div id="tools">
+    <div class="sh"><span>Tools &amp; Software</span></div>
+    <div class="tools-grid">
+      <div class="tool-cell">
+        <div class="tool-cat">Architectural BIM</div>
+        <div class="tool-list">Archicad<br>Revit Architecture<br>AutoCAD</div>
+      </div>
+      <div class="tool-cell">
+        <div class="tool-cat">Structural Analysis</div>
+        <div class="tool-list">Autodesk Robot Structural Analysis<br>SolidWorks — shop drawings</div>
+      </div>
+      <div class="tool-cell">
+        <div class="tool-cat">3D Design</div>
+        <div class="tool-list">SketchUp<br>Rhino<br>Vectorworks</div>
+      </div>
+      <div class="tool-cell">
+        <div class="tool-cat">Disciplines</div>
+        <div class="tool-list">Architectural Design-Build<br>Structural Steel Design<br>Renovation Modelling<br>Technical Drafting</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="contact">
+    <div>
+      <div class="c-heading">Let's build<br><em>something</em><br>precise.</div>
+      <p class="c-sub">Open to architectural &amp; structural BIM roles,<br>design-build projects, and contract work.</p>
+    </div>
+    <div class="c-links">
+      <a href="mailto:herizo.mdg@outlook.com" class="c-link">
+        <span class="c-label">Email</span>
+        <span class="c-val">herizo.mdg@outlook.com</span>
+        <span class="c-arrow">→</span>
+      </a>
+      <div class="c-link">
+        <span class="c-label">Location</span>
+        <span class="c-val">Antananarivo · open to relocation</span>
+        <span class="c-arrow">→</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Inspired From Above</span>
+    <span>Architectural &amp; Structural BIM Modelling</span>
+  </footer>
+
+</div>
+</body>
+</html>
